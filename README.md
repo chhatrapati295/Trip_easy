@@ -4,4 +4,4 @@
 2. first clone this repositary and then rum command on terminal --> npm i .
 3. then run command --> npm run dev
 4. now you can view my project.
-5. Also i've hosted it.
+5. You can check live preview here --> https://trip-easy-cc.netlify.app/
