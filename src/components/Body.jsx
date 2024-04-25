@@ -8,7 +8,7 @@ const Body = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [inputValue, setInputValue] = useState("");
   const [searchData, setSearchData] = useState(null);
-  const [error, setError] = useState(null); 
+  const [error, setError] = useState(null);
   const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
@@ -76,13 +76,15 @@ const Body = () => {
 
   return (
     <div className="flex flex-col gap-4 pb-4">
-      <div className="flex justify-between py-4  items-center px-8 border-b">
+      <div className="flex justify-between py-4  items-center px-4 md:px-8 border-b">
         <h2 className="text-2xl font-bold">
           Trip<span className="text-yellow-500">Easy</span>
         </h2>
         {weatherData && (
           <div className="text-sm flex items-center gap-2 justify-end">
-            <span className="font-medium text-gray-600">Current location</span>
+            <span className="font-medium text-gray-600 hidden md:block">
+              Current location
+            </span>
             <span className=" text-blue-600">
               {weatherData?.name + ", " + weatherData?.sys?.country}
             </span>
@@ -90,20 +92,20 @@ const Body = () => {
           </div>
         )}
       </div>
-      <div className="flex justify-end px-8">
+      <div className="flex md:justify-end justify-center md:px-8 ">
         <form
           action=""
           className=" rounded-md flex flex-col gap-2"
           onSubmit={handleFormSubmit}
         >
           <div className="flex gap-2 items-center">
-            <div className="border rounded-md">
+            <div className="border rounded-md flex flex-row whitespace-nowrap">
               <input
                 placeholder="input city name"
                 type="text"
                 value={inputValue}
                 onChange={handleInpChange}
-                className=" p-2 rounded-md w-72 outline-none"
+                className=" p-2 rounded-md md:w-72 w-auto outline-none"
               />
               <button
                 type="submit"
@@ -121,13 +123,13 @@ const Body = () => {
           )}
         </form>
       </div>
-      <div className="flex gap-6  justify-between px-8">
+      <div className="flex gap-6  justify-between px-3 md:px-8">
         {searchData?.name && (
           <WeatherCard weatherData={searchData} isSearch={true} />
         )}
       </div>
       {weatherData && (
-        <div className="flex gap-6  justify-between px-8">
+        <div className="flex gap-6  justify-between px-3 md:px-8">
           <WeatherCard weatherData={weatherData} />
         </div>
       )}

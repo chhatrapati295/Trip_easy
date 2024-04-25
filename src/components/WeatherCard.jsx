@@ -8,10 +8,10 @@ const WeatherCard = ({ weatherData, isSearch }) => {
     <div
       className={
         !isSearch
-          ? "flex gap-6 items-center text-sm  rounded-md w-full justify-around m-auto p-8 bg-gray-100"
+          ? "flex flex-col md:flex-row gap-6 items-center text-sm  rounded-md w-full justify-around m-auto md:p-8 px-4 py-8 bg-gray-100"
           : weatherData.main.temp >= 15 && weatherData.main.temp <= 25
-          ? "flex gap-6 items-center text-sm  rounded-md w-full justify-around m-auto p-8 bg-green-100"
-          : "flex gap-6 items-center text-sm  rounded-md w-full justify-around m-auto p-8 bg-gray-100"
+          ? "flex flex-col md:flex-row gap-6 items-center text-sm  rounded-md w-full justify-around m-auto md:p-8 px-4 py-8 bg-green-100"
+          : "flex flex-col md:flex-row gap-6 items-center text-sm  rounded-md w-full justify-around m-auto md:p-8 px-4 py-8 bg-gray-100"
       }
     >
       <div className="w-52 flex justify-center items-center flex-col gap-4">
@@ -61,12 +61,12 @@ const WeatherCard = ({ weatherData, isSearch }) => {
             {weatherData?.weather && weatherData?.weather[0]?.main}
           </span>
         </span>
-        <span className="flex items-center gap-2">
+        <div className="flex items-center gap-2">
           <span className="w-40">Temperature </span>
           <span className="text-gray-500">
             {weatherData?.main?.temp + " ℃"}
           </span>
-          <div className="text-xs ml-2">
+          <div className="text-xs ml-2 hidden md:block">
             ({" "}
             <span className="text-xs text text-orange-300">
               Max {weatherData?.main?.temp_max + " ℃ , "}
@@ -76,7 +76,7 @@ const WeatherCard = ({ weatherData, isSearch }) => {
             </span>{" "}
             )
           </div>
-        </span>
+        </div>
 
         <span className="flex items-center gap-2">
           <span className="w-40">Feels like </span>
